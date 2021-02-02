@@ -24,6 +24,24 @@ class _UserTransactionsState extends State<UserTransactions> {
       amount: 16.53,
       date: DateTime.now(),
     ),
+    Transaction(
+      id: 't3',
+      title: 'aaa',
+      amount: 22,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'bbb',
+      amount: 44,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'ccc',
+      amount: 66,
+      date: DateTime.now(),
+    ),
   ];
 
   @override

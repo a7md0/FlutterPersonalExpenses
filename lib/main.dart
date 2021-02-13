@@ -44,36 +44,36 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    Transaction(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Weekly Groceries',
-      amount: 16.53,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't3',
-      title: 'aaa',
-      amount: 22,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'bbb',
-      amount: 44,
-      date: DateTime.now(),
-    ),
-    Transaction(
-      id: 't5',
-      title: 'ccc',
-      amount: 66,
-      date: DateTime.now(),
-    ),
+    // Transaction(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't2',
+    //   title: 'Weekly Groceries',
+    //   amount: 16.53,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't3',
+    //   title: 'aaa',
+    //   amount: 22,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't4',
+    //   title: 'bbb',
+    //   amount: 44,
+    //   date: DateTime.now(),
+    // ),
+    // Transaction(
+    //   id: 't5',
+    //   title: 'ccc',
+    //   amount: 66,
+    //   date: DateTime.now(),
+    // ),
   ];
 
   @override

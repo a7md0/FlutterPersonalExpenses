@@ -31,7 +31,7 @@ class _NewTransactionState extends State<NewTransaction> {
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
               keyboardType: TextInputType.number,
-              onSubmitted: (_) => submitTransaction(),
+              onSubmitted: (_) => _submitTransaction(),
             ),
             Container(
               height: 70,
@@ -53,7 +53,7 @@ class _NewTransactionState extends State<NewTransaction> {
               child: Text('Add Transaction'),
               color: Theme.of(context).primaryColor,
               textColor: Theme.of(context).textTheme.button.color,
-              onPressed: submitTransaction,
+              onPressed: _submitTransaction,
             )
           ],
         ),
@@ -61,7 +61,7 @@ class _NewTransactionState extends State<NewTransaction> {
     );
   }
 
-  void submitTransaction() {
+  void _submitTransaction() {
     final enteredTitle = titleController.text;
     final enteredAmount = double.parse(amountController.text);
 

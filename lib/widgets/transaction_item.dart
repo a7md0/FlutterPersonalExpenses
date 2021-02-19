@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../models/transaction.dart';
 
-class TransactionItem extends StatelessWidget {
+class TransactionItem extends StatefulWidget {
   const TransactionItem({
     Key key,
     @required this.transaction,
@@ -13,6 +13,11 @@ class TransactionItem extends StatelessWidget {
   final Transaction transaction;
   final Function deleteTransaction;
 
+  @override
+  _TransactionItemState createState() => _TransactionItemState();
+}
+
+class _TransactionItemState extends State<TransactionItem> {
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -27,16 +32,16 @@ class TransactionItem extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(6),
             child: FittedBox(
-              child: Text('\$${transaction.amount.toStringAsFixed(2)}'),
+              child: Text('\$${widget.transaction.amount.toStringAsFixed(2)}'),
             ),
           ),
         ),
         title: Text(
-          transaction.title,
+          widget.transaction.title,
           style: Theme.of(context).textTheme.headline6,
         ),
         subtitle: Text(
-          DateFormat.yMMMd().format(transaction.date),
+          DateFormat.yMMMd().format(widget.transaction.date),
           style: TextStyle(
             color: Colors.grey,
           ),
@@ -49,14 +54,16 @@ class TransactionItem extends StatelessWidget {
                 ),
                 label: Text('Delete'),
                 textColor: Theme.of(context).errorColor,
-                onPressed: () => deleteTransaction(transaction.id),
+                onPressed: () =>
+                    widget.deleteTransaction(widget.transaction.id),
               )
             : IconButton(
                 icon: Icon(
                   Icons.delete,
                   color: Theme.of(context).errorColor,
                 ),
-                onPressed: () => deleteTransaction(transaction.id),
+                onPressed: () =>
+                    widget.deleteTransaction(widget.transaction.id),
               ),
       ),
     );

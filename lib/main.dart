@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
 import 'models/transaction.dart';
@@ -99,15 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
 
-    final appBar = AppBar(
-      title: Text('Personal Expenses'),
-      actions: [
-        IconButton(
-          icon: Icon(Icons.add),
-          onPressed: () => _showAddNewTransaction(context),
-        )
-      ],
-    );
+    final appBar = _buildAppBar();
     final isLandscape = mediaQuery.orientation == Orientation.landscape;
     final txListWidget = Container(
       height: (mediaQuery.size.height -
@@ -186,6 +181,33 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _userTransactions.removeWhere((tx) => tx.id == id);
     });
+  }
+
+  PreferredSizeWidget _buildAppBar() {
+    if (Platform.isIOS) {
+      return CupertinoNavigationBar(
+        middle: Text('Personal Expenses'),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            GestureDetector(
+              child: Icon(CupertinoIcons.add),
+              onTap: () => _showAddNewTransaction(context),
+            )
+          ],
+        ),
+      );
+    }
+
+    return AppBar(
+      title: Text('Personal Expenses'),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.add),
+          onPressed: () => _showAddNewTransaction(context),
+        )
+      ],
+    );
   }
 
   List<Widget> _buildLandscapeContent(

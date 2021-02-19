@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -18,6 +20,22 @@ class TransactionItem extends StatefulWidget {
 }
 
 class _TransactionItemState extends State<TransactionItem> {
+  Color _bgColor;
+
+  @override
+  void initState() {
+    super.initState();
+
+    const availableColors = [
+      Colors.red,
+      Colors.blue,
+      Colors.black,
+      Colors.purple,
+    ];
+
+    _bgColor = availableColors[Random().nextInt(availableColors.length)];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -28,6 +46,7 @@ class _TransactionItemState extends State<TransactionItem> {
       elevation: 5,
       child: ListTile(
         leading: CircleAvatar(
+          backgroundColor: _bgColor,
           radius: 30,
           child: Padding(
             padding: EdgeInsets.all(6),
